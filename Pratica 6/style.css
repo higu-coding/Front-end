@@ -1,0 +1,58 @@
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.header {
+    background-color: yellow;
+    height: 14vh;
+    text-align: center;
+}
+
+.search {
+    line-height: 7vh;
+    text-align: center;
+}
+
+.areas {
+    border-style: solid;
+    line-height: 6vh;
+}
+
+.navOpt{
+    vertical-align: middle;
+    margin-left: 2vh;
+}
+
+.content{
+    background-color: lightgray;
+    height: 86vh;
+    text-align: center;
+}
+
+.benefits{
+    background-color: white;
+    height: 15vh;
+    width: 80vw;
+    margin-top: 5vh;
+    display: inline-block;
+    border-radius: 3vh;
+}
+
+.firstOffer, .offers {
+    height: 15vh;
+    width: 20vw;
+    float: left;
+    text-align: left;
+}
+
+.firstOffer{
+    border-right: solid lightblue;
+}
+
+.offertittle{
+    margin-top: 3.5vh;
+}
+
+.offertittle, .subtittle{
+    margin-left: 1vw;
+}

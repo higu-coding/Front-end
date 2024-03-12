@@ -1,0 +1,26 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cabeca {
+    background-color: gray;
+    text-align: center;
+    margin: 0 15%;
+}
+
+.conteudo{
+    margin: 30px auto;
+    max-width: 90%;
+}
+
+.cards {
+    background-color: black;
+    width:42vw;
+    height: 100px;
+    margin: 1vw 1vw;
+    float: left;
+}
+
+p{
+    color: white;
+    margin: 10px;
+}

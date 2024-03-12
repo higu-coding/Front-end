@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: gray;
+}
+
+.header {
+    background-color: yellow;
+    text-align: center;
+    height: 11vh;
+    padding-top: 2.5vh;
+}
+
+.searchbar {
+    padding-bottom: 1.7vh;
+}
+
+#sb{
+    width: 20vw;
+    height: 4vh;
+    padding-left: 1vw;
+    border-radius: 10px;
+    border-style: double;
+}
+
+
+
+.navOptions {
+    color: black;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-bottom: 0px;
+    text-decoration: none;
+    border-radius: 1vw;
+    transition: 1s;
+}
+
+.content {
+    height: 89vh;
+    text-align: center;
+}
+
+.benefits{
+    height: 13vh;
+    margin-top: 5vh;
+    background-color: white;
+    width: 80vw;
+    border-radius: 2vh;
+    display: inline-block;
+    font-size: 0.85vw;
+}
+
+.card, .payment, .paymentcard, .pix {
+    float: left;
+    height: 13vh;
+    width: 19vw;
+    text-align: left;
+}
+.payment, .paymentcard, .pix{
+    margin-left: 1vw;
+}
+.card {
+    border-right: solid;
+}
+
+.offers{
+    margin-top: 2.5vh;
+}
+
+.offers, .subtittle{
+    margin-left: 1vw;
+}
+
+.contents{
+    width: 80vw;
+    margin-top: 5vh;
+    display: inline-block;
+}
+.items {
+    float: left;
+    width: 15vw;
+    height: 286px;
+    margin: 5.2vh;
+    background-color: white;
+    padding: 0.8vw;
+    margin-top: 2vh;
+    overflow: hidden;
+    transition: 1s;
+    border-radius: 20px;
+}
+
+img {
+    border-radius: 10px;
+}
+
+.items:hover{
+    height: 45vh;
+    transition: 1s;
+
+}
+
+.navOptions:hover {
+    transition: 1s;
+    background-color: rgba(0, 0, 0, 0.527);
+    color: white;
+    border-radius: 1vw;
+}
+
+.value, .productName {
+    text-align: left;
+    margin-top: 0.7vh;
+
+}
+
+.oldPrice {
+    text-align: right;
+    text-decoration: line-through;
+    margin-top: 1vh;
+}

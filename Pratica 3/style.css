@@ -1,0 +1,52 @@
+body{
+    background-color: pink;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.apresentacao{
+    width: 700px;
+}
+.titulo{
+    margin-left: 31%;
+}
+.container {
+    height: 80px;
+    width: 100%;
+    
+}
+
+.span1, .span2 {
+    margin: 10px;
+    padding: 15px 10px;
+    border: 10px;
+    height: 20px;
+    width: 35%;
+    float: left;
+    background-color: red;
+}
+
+.nasc, .atualizacao {
+    margin: 20px 10px;
+    padding: 15px 10px;
+    border: 10px;
+    height: 20px;
+    width: 35%;
+    float: left;
+    background-color: red;
+}
+
+.rotina, .hobbie{
+    margin: 10px;
+    padding: 10px 10px;
+    background-color: purple;
+    width: 35%;
+    float: left;
+}
+
+.artistas, .viagens{
+    margin: 10px;
+    padding: 15px 10px;
+    background-color: purple;
+    width: 35%;
+    float: left;
+}

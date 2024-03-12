@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<style>
+    html {
+        box-sizing: border-box;
+        font-size: 16px;
+        }
+
+        *, *:before, *:after {
+        box-sizing: inherit;
+        }
+
+        body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+        }
+
+        ol, ul {
+        list-style: none;
+        }
+
+        img {
+        max-width: 100%;
+        height: auto;
+        }
+</style>
+<body>
+    <section class="header">
+        <article class="searchbar">
+            <input type="search" name="sbar" id="sb" placeholder="O que deseja?">
+        </article>
+        <article class="options">
+            <a href="../../index.html" target="_self" class="navOptions"><strong>Inicio</strong></a>
+            <a href="../categories/categories.html" target="_self" class="navOptions"><strong>Categoria</strong></a>
+            <a href="../offers/offers.html" target="_self" class="navOptions"><strong>Ofertas do dia</strong></a>
+            <a href="../historic/historic.html" target="_self" class="navOptions"><strong>Histórico</strong></a>
+            <a href="../contacts/contacts.html" target="_self" class="navOptions"><strong>Contatos</strong></a>
+        </article>
+    </section>
+    <section class="content">
+        <section class="register">
+            <article class="data">
+                <h1 class="tittle"><strong>REGISTRE-SE</strong></h1>
+                <h2 class="name"><strong>Nome completo</strong></h2>
+                <label for="cName"></label>
+                <input class="registerUser" type="text" name="completeName" id="cName" placeholder="Nome completo">
+                <h2 class="number"><strong>Numero de telefone</strong></h2>
+                <label for="phoneNum"></label>
+                <input class="registerUser" type="text" name="phoneNumber" id="phoneNum" placeholder="Numero de telefone">
+                <h2 class="email"><strong>E-mail</strong></h2>
+                <label for="vEmail"></label>
+                <input class="registerUser" type="text" name="validEmail" id="vEmail" placeholder="Email valido">
+                <h2 class="password"><strong>Digite sua senha</strong></h2>
+                <label for="vPassw"></label>
+                <input class="registerUser" type="text" name="validPassword" id="vPassw" placeholder="Digite sua senha">
+                <h2 class="confirmPassword"><strong>Confirme sua senha</strong></h2>
+                <label for="vPassConfirm"></label>
+                <input class="registerUser" type="text" name="validConfirmPassword" id="vPassConfirm" placeholder="Confirme sua senha">
+            </article>
+        </section>
+    </section>
+</body>
+</html>

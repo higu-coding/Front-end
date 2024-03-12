@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: gray;
+    text-align: center;
+}
+
+.header {
+    background-color: yellow;
+    text-align: center;
+    height: 11vh;
+    padding-top: 2.5vh;
+}
+
+.searchbar {
+    padding-bottom: 1.7vh;
+}
+
+#sb{
+    width: 20vw;
+    height: 4vh;
+    padding-left: 1vw;
+    border-radius: 10px;
+    border-style: double;
+}
+
+.navOptions {
+    color: black;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-bottom: 0px;
+    text-decoration: none;
+    border-radius: 1vw;
+    transition: 1s;
+}
+
+.navOptions:hover {
+    transition: 1s;
+    background-color: rgba(0, 0, 0, 0.527);
+    color: white;
+    border-radius: 1vw;
+}
+
+
+.content {
+    max-width: 32%;
+    height: 600px;
+    margin: auto;
+    margin-top: 5%;
+    box-shadow: 0 0px 15px #000000c2;
+    border-radius:20px;
+    background-color: rgb(143, 143, 143);
+
+}
+
+.register {
+    color: white;
+    text-align: left;
+    margin: 2.5%;
+}
+
+.data{
+    font-size: 15px;
+}
+
+.tittle {
+    text-align: center;
+    font-size: 25px;
+}
+
+.registerUser{
+    margin: 0.5vh;
+    padding: 0.5vw;
+    width: 30vw;
+    height: 4vh;
+    border-radius: 7px;
+    font-size: 18px;
+    border: solid 1px#a5a5a5;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 15px;
+}
