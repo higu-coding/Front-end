@@ -1,0 +1,126 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+body {
+    background-color: #aeb0b0;
+}
+
+.content{
+    width: 100vw;
+    height: 100vh;
+}
+
+.menu{
+    background-color: #787b7b;
+    text-align: center;
+    padding: 2vh;
+}
+
+.logo {
+    margin-top: 1vh;
+    margin-left: 1vw;
+    padding: 1vh;
+    text-decoration: none;
+    float: left;
+    background-color: #e0e0e0;
+    color: rgb(105, 105, 105);
+}
+
+.navigation {
+    text-align: center;
+    margin: 1.5vh;
+    background-color: #1c1c1c;
+    color: white;
+    text-decoration: none;
+    padding: 1vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+}
+
+.product-area{
+    text-align: center;
+    margin-top: 80px;
+}
+
+.slogan {
+    margin-top: -6vh;
+    margin-bottom: 3vh;
+    font-size: 6vh;
+}
+
+.product{    
+    font-size: 3vh;
+    padding-bottom: 3vh;
+    border-bottom: solid;
+}
+
+h2 {
+    margin-bottom: 4vh;
+    text-align: center;
+    font-size: 30px;
+}
+.main-models{
+    text-align: center;
+    padding-top: 3vh;
+    width: 100vw;
+    float: left;
+}
+
+.main-clothes{
+    padding-left: 25vw;
+}
+
+figure {
+    float: left;
+    margin-left: 3vw;
+    margin-bottom: 10vh;
+    font-size: 20px;
+}
+
+.form{
+    text-align: center;
+    max-width: 100vw;
+    font-size: 15px;
+}
+
+input{
+    font-size: 15px;
+    padding: 7px;
+}
+
+.btn-send {
+    background-color: #1c1c1c;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 3vh;
+    transition: 0.3s;
+}
+
+.btn-send:hover{
+    cursor: pointer;
+}
+.btn-send:active{
+    background-color: #787b7b;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 1020px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+    .menu{
+        display: none;
+    }
+    .moletom-preto{
+        width: 250px;
+        height: 288px;
+    }
+    .main-clothes{
+        padding-left: 16vw;
+    }
+    .form{
+        padding: 25vw;
+    }
+}
