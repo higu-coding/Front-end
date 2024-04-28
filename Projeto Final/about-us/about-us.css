@@ -3,13 +3,11 @@
 }
 body {
     background-color: #aeb0b0;
-    overflow-x: hidden;
 }
 
 .content{
     width: 100vw;
     height: 100vh;
-    
 }
 
 .header{
@@ -25,35 +23,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.nav-list{
-    display: flex;
-    gap: 32px;
-    list-style: none;
-}
-
-.nav-list a {
-    font-size: 18px;
-    padding-block: 16px;
-}
-
-.logo {
-    padding: 1vh;
-    text-decoration: none;
-    background: #e0e0e0;
-    color: rgb(105, 105, 105);
-}
-
-.navigation {
-    text-align: center;
-    margin: 1.5vh;
-    background-color: #1c1c1c;
-    color: white;
-    text-decoration: none;
-    padding: 1vh;
-    padding-left: 3vh;
-    padding-right: 3vh;
 }
 
 .hamburger{
@@ -75,63 +44,58 @@ body {
     transition: 0.3s;
 }
 
-.product-area{
-    text-align: center;
-    margin-top: 80px;
-}
-
-.slogan {
-    margin-top: -6vh;
-    margin-bottom: 3vh;
-    font-size: 6vh;
-}
-
-.product{    
-    font-size: 3vh;
-    padding-bottom: 3vh;
-    border-bottom: solid rgb(145, 145, 145);
-}
-
-h2 {
-    margin-bottom: 4vh;
-    text-align: center;
-    font-size: 30px;
-}
-.main-models{
-    text-align: center;
-    padding-top: 3vh;
-    width: 100vw;
-    float: left;
-    
-}
-
-.main-clothes{
+.nav-list{
     display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.nav-list a {
+    font-size: 18px;
+}
+
+.logo {
+    padding: 1vh;
+    text-decoration: none;
+    background: #e0e0e0;
+    color: rgb(105, 105, 105);
+}
+
+.navigation {
+    text-align: center;
+    margin: 1.5vh;
+    background-color: #1c1c1c;
+    color: white;
+    text-decoration: none;
+    padding: 1vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+}
+
+.about-us {
+    text-align: center;
+    padding-top: 15vh;
+    width: 50vw;
+    padding-left: 25vw;
+    padding-right: 25vw;
+    padding-bottom: 5vw;
     border-bottom: solid rgb(145, 145, 145);
 }
 
-figure {
-    float: left;
-    margin-left: 3vw;
-    margin-bottom: 10vh;
-    font-size: 20px;
+footer {
+    padding-top: 13vw;
+    text-align: center;
 }
 
 .form{
+    padding-top: 4vw;
     text-align: center;
     font-size: 15px;
+    padding-bottom: 2vw;
     border-bottom: solid rgb(145, 145, 145);
 }
 
 input{
     font-size: 15px;
     padding: 7px;
-}
-
-.footer{
-    text-align: center;
 }
 
 .btn-send {
@@ -151,7 +115,7 @@ input{
     transition: 0.3s;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 550px) {
     .content {
         display: flex;
         flex-direction: column;
@@ -159,11 +123,6 @@ input{
 
     .nav{
         height: 8.7vh;
-    }
-
-    .hamburger{
-        display: block;
-        z-index: 1;
     }
 
     .nav-list{
@@ -183,6 +142,7 @@ input{
         pointer-events: none;
     }
 
+    
     .nav-list a {
         font-size: 24px;
         opacity: 0;
@@ -197,7 +157,7 @@ input{
     .nav-list li:nth-child(3) a {
         transition: 0.5s 0.6s;
     }
-    .active a {
+    .active .nav-list a {
         opacity: 1;
     }
     .active .hamburger{
@@ -220,16 +180,11 @@ input{
         pointer-events: all;
     }
 
-
-
-    .moletom-preto{
-        width: 250px;
-        height: 288px;
+    .hamburger{
+        display: block;
+        z-index: 1;
     }
-    .main-clothes{
-        flex-direction: column;
-        border-bottom: solid;
-    }
+
     .form{
         text-align: center;
         justify-content: center;
