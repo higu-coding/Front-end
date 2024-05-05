@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Camiseta Preta</title>
+    <link rel="stylesheet" href="stylebs.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
         * {
@@ -14,50 +14,63 @@
         vertical-align:baseline;
         }
     </style>
-
 </head>
 <body>
     <section class="content">
         <header class="header">
             <nav class="nav">
-                <a href="home.html" class="logo">DoDev Clothes</a>
-                <button class="hamburger"></button>
+                <a href="../../home.html" class="logo">DoDev Clothes</a>
                 <ul class="nav-list">
-                    <li><a class="navigation" href="home.html" >Home</a></li>
+                    <li><a class="navigation" href="../../home.html" >Home</a></li>
                     <li><a href="" class="navigation">Produto individual</a></li>
-                    <li><a class="navigation" href="about-us/about-us.html" >Sobre nós</a></li>
+                    <li><a class="navigation" href="../../about-us/about-us.html" >Sobre nós</a></li>
                 </ul>
+                
             </nav>
+            <div class="btn">
+                <button class="cart"><img src="../../images/add-cart.png" alt="" srcset=""></button>
+            </div>
         </header>
-        <section class="product-area">
-            <h1 class="slogan">Seu armario tecnológico</h1>
+        <section class="clothe">
             <div class="product">
-                <a href="products/black-moletom/black-moletom.html"><img src="images/moletom-preto.jpeg" alt="Moletom preto" class="moletom-preto"></a>
-                <p><a>Moletom preto</a></p>
+                <img src="../../images/camisa-manga-curta.jpeg" alt="Camiseta" class="shirt">
+                <div class="description">
+                    <p class="product-name">Camiseta preta</p>
+                    <p class="product-price">R$129,90</p>
+                    <div class="btn-area">
+                        <p class="quantity-p">Quantidade</p>
+                        <button class="diminuir">-</button>
+                        <span class="quantity">1</span>
+                        <button class="aumentar">+</button>
+                    </div>
+                    <div class="">
+                        <button class="btn-addcart">ADICIONAR AO CARRINHO<button>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="main-models">
             <h2>Principais modelos</h2>
             <div class="main-clothes">
                 <figure>
-                    <a href="products/othershirt/othershirt.html">
-                        <img src="images/camisa-manga-curta2.jpeg" alt="Camisa preta" width="250px" height="240px" class="clothes">
+                    <a href="../othershirt/othershirt.html">
+                        <img src="../../images/camisa-manga-curta2.jpeg" alt="Camisa preta" width="250px" height="240px" class="clothes">
                     </a>
                     <figcaption>Camisa preta</figcaption>
                 </figure>
                 
                 <figure>
-                    <a href="products/whitemoletom/whitemoletom.html">
-                        <img src="images/moletom-branco-p.jpeg" alt="Moletom branco" width="250px" height="240px" class="clothes">
+                    <a href="../whitemoletom/whitemoletom.html">
+                        <img src="../../images/moletom-branco-p.jpeg" alt="Moletom branco" width="250px" height="240px" class="clothes">
                     </a>
                     <figcaption>Moletom branco</figcaption>
                 </figure>
                 
                 <figure>
-                    <a href="products/blackshirt/black-shirt.html">
-                        <img src="images/camisa-manga-curta.jpeg" alt="Camisa preta" width="250px" height="240px" class="clothes">
+                    <a href="../black-moletom/black-moletom.html">
+                        <img src="../../images/moletom-preto-p.jpeg" alt="Camisa preta" width="250px" height="240px" class="clothes">
                     </a>
-                    <figcaption>Camisa preta</figcaption>
+                    <figcaption>Moletom preto</figcaption>
                 </figure>
             </div>
         </section>
@@ -81,6 +94,5 @@
         </section>
         <footer class="footer">Made by Hiago</footer>
     </section>
-    <script src="main.js" defer></script>
 </body>
 </html>

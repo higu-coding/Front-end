@@ -21,7 +21,7 @@ body {
     margin-inline: auto;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -120,9 +120,11 @@ input{
         display: flex;
         flex-direction: column;
     }
-
+ 
     .nav{
         height: 8.7vh;
+        display: flex;
+        justify-content: space-between;
     }
 
     .nav-list{
