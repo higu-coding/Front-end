@@ -24,7 +24,7 @@ body {
     margin-inline: auto;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -38,7 +38,9 @@ body {
 }
 
 .logo {
+    text-align: left;
     padding: 1vh;
+    margin-right: 45vw;
     text-decoration: none;
     background: #e0e0e0;
     color: rgb(105, 105, 105);
@@ -77,11 +79,9 @@ body {
 .cart{
     padding-top: 17px;
     padding-right: 15px;
-    float: right;
     background: none;
     border: none;
     cursor: pointer;
-    float: right;
 }
 
 .clothe {
@@ -152,6 +152,17 @@ body {
     font-size: 17px;
     margin-top: 85px;
     padding: 15px;
+    transition: 0.5s;
+}
+
+.btn-addcart:active{
+    transition: 0.5s;
+    background-color: #e0e0e0;
+    color: black;
+}
+
+.btn-addcart:hover{
+    cursor: pointer;
 }
 
 h2 {
@@ -226,80 +237,111 @@ input{
     .content {
     display: flex;
     flex-direction: column;
-}
-.nav{
-    height: 8.7vh;
-    display: flex;
-    justify-content: space-between;
-}
+    overflow-x: hidden;
+    }
 
-.hamburger{
-    display: block;
-    z-index: 1;
-}
+    .header{
+        padding: 0;
+    }
 
-.nav-list{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #1c1c1c;
-    clip-path: circle(100px at 90% -17%);
-    transition: 1s ease-out;
-
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    gap: 0;
-    pointer-events: none;
-}
-
-.nav-list a {
-    font-size: 24px;
-    opacity: 0;
-}
-
-.nav-list li:nth-child(1) a {
-    transition: 0.5s 0.2s;
-}
-.nav-list li:nth-child(2) a {
-    transition: 0.5s 0.4s;
-}
-.nav-list li:nth-child(3) a {
-    transition: 0.5s 0.6s;
-}
-.active a {
-    opacity: 1;
-}
-.active .hamburger{
-    position: fixed;
-    top: 20px;
-    right: 16px;
-    border-top-color: transparent;
-}
-
-.active .hamburger::before{
-    transform: rotate(135deg);
-}
-.active .hamburger::after{
-    transform: rotate(-135deg);
-    top: -7px;
-}
-
-.active .nav-list{
-    clip-path: circle(1500px at 90% -17%);
-    pointer-events: all;
-}
+    .nav{
+        height: 8.7vh;
+        display: flex;
+        justify-content: space-between;
+    }
 
 
-.main-clothes{
-    flex-direction: column;
-}
-.form{
-    text-align: center;
-    justify-content: center;
-    padding: 25vw;
-    padding-top: 10vw;
-}
+    .hamburger{
+        display: block;
+        z-index: 1;
+    }
+
+    .nav-list{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #1c1c1c;
+        clip-path: circle(100px at 90% -17%);
+        transition: 1s ease-out;
+
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        pointer-events: none;
+    }
+
+    .nav-list a {
+        font-size: 24px;
+        opacity: 0;
+    }
+
+    .nav-list li:nth-child(1) a {
+        transition: 0.5s 0.2s;
+    }
+    .nav-list li:nth-child(2) a {
+        transition: 0.5s 0.4s;
+    }
+    .nav-list li:nth-child(3) a {
+        transition: 0.5s 0.6s;
+    }
+    .active a {
+        opacity: 1;
+    }
+    .active .hamburger{
+        position: fixed;
+        top: 20px;
+        right: 16px;
+        border-top-color: transparent;
+    }
+
+    .active .hamburger::before{
+        transform: rotate(135deg);
+    }
+    .active .hamburger::after{
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+
+    .active .nav-list{
+        clip-path: circle(1500px at 90% -17%);
+        pointer-events: all;
+    }
+
+    .product{
+        display: block;
+        width: 100vw;
+        text-align: center;
+    }
+
+    .description{
+        float: none;
+        flex-direction: column;
+        padding-top: 20px;
+    }
+
+    .quantity-p{
+        margin-top: 20px;
+    }
+
+    .btn-addcart{
+        margin-top: 20px;
+    }
+
+    .moletom-preto{
+        width: 250px;
+        height: 288px;
+    }
+
+    .main-clothes{
+        flex-direction: column;
+    }
+    .form{
+        text-align: center;
+        justify-content: center;
+        padding: 25vw;
+        padding-top: 10vw;
+    }
 }

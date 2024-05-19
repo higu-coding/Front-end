@@ -38,7 +38,9 @@ body {
 }
 
 .logo {
+    text-align: left;
     padding: 1vh;
+    margin-right: 45vw;
     text-decoration: none;
     background: #e0e0e0;
     color: rgb(105, 105, 105);
@@ -149,6 +151,16 @@ body {
     font-size: 17px;
     margin-top: 105px;
     padding: 15px;
+}
+
+.btn-addcart:active{
+    transition: 0.5s;
+    background-color: #e0e0e0;
+    color: black;
+}
+
+.btn-addcart:hover{
+    cursor: pointer;
 }
 
 h2 {
@@ -290,11 +302,29 @@ input{
         pointer-events: all;
     }
 
+    .product{
+        display: block;
+        width: 100vw;
+        text-align: center;
+    }
 
+    .description{
+        float: none;
+        flex-direction: column;
+        padding-top: 20px;
+    }
 
-    .moletom-preto{
+    .quantity-p{
+        margin-top: 20px;
+    }
+
+    .btn-addcart{
+        margin-top: 20px;
+    }
+
+    .moletom-branco{
         width: 250px;
-        height: 288px;
+        height: 230px;
     }
     .main-clothes{
         flex-direction: column;
