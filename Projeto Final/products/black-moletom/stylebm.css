@@ -24,7 +24,7 @@ body {
     margin-inline: auto;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -38,9 +38,7 @@ body {
 }
 
 .logo {
-    text-align: left;
     padding: 1vh;
-    margin-right: 45vw;
     text-decoration: none;
     background: #e0e0e0;
     color: rgb(105, 105, 105);
@@ -83,6 +81,7 @@ body {
     border: none;
     cursor: pointer;
 }
+
 
 .clothe {
     padding-top: 8vh;

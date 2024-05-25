@@ -6,9 +6,9 @@ let contador = 1
 btnQuantity.innerHTML = 1
 
 btnAumentar.addEventListener('click', (e) => {
-    btnQuantity.innerHTML = contador++
+    btnQuantity.innerHTML = contador+=1
 })
 
 btnDiminuir.addEventListener('click', (e) => {
-    btnQuantity.innerHTML = contador--
+    btnQuantity.innerHTML = contador-=1
 })

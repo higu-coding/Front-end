@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moletom Preto</title>
     <link rel="stylesheet" href="stylebm.css">
-    <script src="bm.js" defer></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="bm.js" defer type="module"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
         * {
@@ -14,17 +15,26 @@
         list-style:none;
         vertical-align:baseline;
         }
+        
     </style>
 </head>
 <body>
+    
     <section class="content">
         <header class="header">
             <nav class="nav">
                 <a href="../../home.html" class="logo">DoDev Clothes</a>
+                <ul class="nav-list">
+                    <li><a class="navigation" href="../../home.html" >Home</a></li>
+                    <li><a href="" class="navigation">Produto individual</a></li>
+                    <li><a class="navigation" href="../../about-us/about-us.html" >Sobre nós</a></li>
+                </ul>
+                
             </nav>
             <div class="btn">
-                <button class="cart"><a href="../../cart/cart.html"><img src="../../images/add-cart.png" alt="" srcset=""></a></button>
+                <button class="cart"><img src="../../images/add-cart.png" alt="" srcset=""></button>
             </div>
+
         </header>
         <section class="clothe">
             <div class="product">
@@ -38,12 +48,11 @@
                         <span class="quantity"></span>
                         <button class="aumentar">+</button>
                     </div>
-                    <div class="">
-                        <button class="btn-addcart">ADICIONAR AO CARRINHO<button>
-                    </div>
+                    <button class="btn-addcart">ADICIONAR AO CARRINHO<button>
                 </div>
             </div>
         </section>
+            
         <section class="main-models">
             <h2>Principais modelos</h2>
             <div class="main-clothes">
