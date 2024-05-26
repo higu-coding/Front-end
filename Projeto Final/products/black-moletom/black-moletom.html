@@ -19,7 +19,6 @@
     </style>
 </head>
 <body>
-    
     <section class="content">
         <header class="header">
             <nav class="nav">
@@ -32,7 +31,90 @@
                 
             </nav>
             <div class="btn">
-                <button class="cart"><img src="../../images/add-cart.png" alt="" srcset=""></button>
+                <button class="cart active"><img src="../../images/add-cart.png" alt="" srcset=""></button>
+
+                <!-- Parte abaixo é do popup-->
+                <div class="container-popup" id="container">
+                    <div class="popup">
+                        <button class="close-popup"><i class='bx bx-x'></i></button>
+                        <h1 class="cart-title">Seu carrinho de compras</h1>
+
+                        <div class="popup-content">
+                            <section class="sectionCart">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Produto</th>
+                                            <th>Preço</th>
+                                            <th>Quantidade</th>
+                                            <th>Total</th>
+                                            <th>-</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="product-oncart">
+                                                    <img src="https://picsum.photos/150/150" alt="">
+                                                    <div class="info">
+                                                        <div class="name">
+                                                            Nome do Produto
+                                                        </div>
+                                                        <div class="category">
+                                                            Categoria
+                                                        </div>
+                                                    </div>
+                                            
+                                                </div>
+                                            </td>
+                                            <td>R$ 129,90</td>
+                                            <td>
+                                                <div class="qty">
+                                                     <button class="minus">-</button>
+                                                     <span class="qty-oncart">1</span>
+                                                     <button class="plus">+</button>
+                                                </div>
+                                            </td>
+                                            <td>R$ 129,90</td>
+                                            <td>
+                                                <button class="remove-product"><i class='bx bx-x' ></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                            <aside>
+                                <div class="box">
+                                    <header>
+                                        Resumo da compra
+                                    </header>
+            
+                                    <div class="infos">
+                                        <div>
+                                            <span>Sub-total</span>
+                                            <span>R$ 00,00</span>
+                                        </div>
+                                        <div>
+                                            <span>Frete</span><span>Gratuito</span>
+                                        </div>
+                                        <div>
+                                            <button>Adicionar cupom de desconto <i class='bx bx-right-arrow-alt'></i></button>
+                                        </div>
+                                    </div>
+                                    <footer>
+                                        <span>Total:</span>
+                                        <span>R$ 00,00</span>
+                                    </footer>
+                                </div>
+                                <button>Finalizar Compra</button>
+                            </aside>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- Parte acime é do popup-->
+
             </div>
 
         </header>

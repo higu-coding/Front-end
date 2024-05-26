@@ -26,10 +26,27 @@ body {
     align-items: center;
 }
 
+.hamburger{
+    display: none;
+    border: none;
+    background: none;
+    border-top: 3px solid #fff;
+    cursor: pointer;
+}
+
+.hamburger::before, .hamburger::after{
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    margin-top: 5px;
+    position: relative;
+    transition: 0.3s;
+}
+
 .nav-list{
     display: flex;
-    list-style: none;
-    position: fixed;
 }
 
 .nav-list a {

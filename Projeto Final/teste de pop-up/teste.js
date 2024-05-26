@@ -1,11 +1,11 @@
-const button = document.querySelector('.cart')
-const modal = document.querySelector('dialog')
-const buttonClose = document.querySelector('.close')
+const active = document.querySelector('.active')
+const closePopup = document.querySelector('.close-popup')
+const container = document.querySelector('#container')
 
-button.onclick = function () {
-    modal.showModal()
-}
+active.addEventListener('click', () => {
+    container.classList.add('active')
+})
 
-buttonClose.onclick = function () {
-    modal.close()
-}
+closePopup.addEventListener('click', () => {
+    container.classList.remove('active')
+})
