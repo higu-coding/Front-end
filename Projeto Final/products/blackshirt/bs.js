@@ -11,3 +11,4 @@ btnAumentar.addEventListener('click', (e) => {
 btnDiminuir.addEventListener('click', (e) => {
     btnQuantity.innerHTML = contador--
 })
+

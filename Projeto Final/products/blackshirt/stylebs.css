@@ -233,6 +233,8 @@ input{
     transition: 0.3s;
 }
 
+
+
 @media screen and (max-width: 850px) {
     .content {
         display: flex;
