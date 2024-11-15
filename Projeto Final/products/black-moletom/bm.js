@@ -13,7 +13,8 @@ btnDiminuir.addEventListener('click', (e) => {
     btnQuantity.innerHTML = contador-=1
 })
 
-// Parte abaixo é do popup
+// Parte abaixo é do popup -----------------------------------------------------------------------
+
 const active = document.querySelector('.active')
 const closePopup = document.querySelector('.close-popup')
 const container = document.querySelector('#container')
@@ -54,4 +55,4 @@ for (let i = 0; i < cartProducts.length; i++) {
 }
 console.log(totalPrice)
 
-// Parte acima é do popup
+// Parte acima é do popup -----------------------------------------------------------------------

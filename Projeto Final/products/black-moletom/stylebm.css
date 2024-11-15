@@ -232,7 +232,7 @@ input{
     text-align: center;
 }
 
-/* Parte abaixo é do popup */
+/* Parte abaixo é do popup ----------------------------------------------------------------------- */
 .container-popup {
     position: fixed;
     top: 0;
@@ -450,7 +450,7 @@ aside > button:hover {
     transition: 0.2s;
 }
 
-/* Parte acima é do popup */
+/* Parte acima é do popup ----------------------------------------------------------------------- */
 
 @media screen and (max-width: 850px) {
     .content {
