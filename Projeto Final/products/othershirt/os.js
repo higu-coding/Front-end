@@ -5,12 +5,14 @@ const btnDiminuir = document.querySelector('.diminuir')
 let contador = 1
 
 btnAumentar.addEventListener('click', (e) => {
-    btnQuantity.innerHTML = contador++
+    btnQuantity.innerHTML = contador+=1
 })
 
 btnDiminuir.addEventListener('click', (e) => {
-    btnQuantity.innerHTML = contador--
-})
+    if(contador > 1) {
+        contador--
+        btnQuantity.innerHTML = contador
+    }})
 
 // Parte abaixo é do popup -----------------------------------------------------------------------
 const active = document.querySelector('.active')
@@ -38,7 +40,10 @@ plus.addEventListener('click', (e) => {
 })
 
 minus.addEventListener('click', (e) => {
-    qty.innerHTML = contador2-=1
+    if(contador2 > 1) {
+        contador2--
+        qty.innerHTML = contador2
+    }
 })
 
 // abaixo vai estar a parte para atualizar os valores
