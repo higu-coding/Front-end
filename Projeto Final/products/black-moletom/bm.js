@@ -16,7 +16,7 @@ btnDiminuir.addEventListener('click', (e) => {
 
 // Parte abaixo é colocando o produto no carrinho
 
-const activeProduct = document.querySelector('.active-product')
+const activeProduct = document.querySelector('.active-product') // estava mexendo aqui
 const nameProduct = document.querySelector('.product-name')
 const productPrice = document.querySelector('.product-price')
 const quantity = document.querySelector('.quantity')
@@ -30,6 +30,12 @@ addCart.addEventListener('click', (e) => {
     console.log(productPrice.textContent)
     console.log(quantity.textContent)
 
+    const name = document.querySelector('.name') // estava mexendo aqui 
+    const price = document.querySelector('.price') // estava mexendo aqui
+    const imgProd = document.querySelector('.imgProd') // estava mexendo aqui
+    imgProd.src = '../../images/moletom-preto-p.jpeg' // estava mexendo aqui
+    name.innerHTML = nameProduct.textContent // estava mexendo aqui
+    price.innerHTML = productPrice.textContent // estava mexendo aqui
 })
 
 // Parte acima é colocando o produto no carrinho
