@@ -14,6 +14,26 @@ btnDiminuir.addEventListener('click', (e) => {
         btnQuantity.innerHTML = contador
     }})
 
+// Parte abaixo é colocando o produto no carrinho
+
+const activeProduct = document.querySelector('.active-product')
+const nameProduct = document.querySelector('.product-name')
+const productPrice = document.querySelector('.product-price')
+const quantity = document.querySelector('.quantity')
+const addCart = document.querySelector('.btn-addcart')
+
+addCart.addEventListener('click', (e) => {
+    window.localStorage.setItem('nome',nameProduct.value)
+    window.localStorage.setItem('preço',productPrice.value)
+    window.localStorage.setItem('quantidade',quantity.value)
+    console.log(nameProduct.textContent)
+    console.log(productPrice.textContent)
+    console.log(quantity.textContent)
+
+})
+
+// Parte acima é colocando o produto no carrinho
+
 // Parte abaixo é do popup -----------------------------------------------------------------------
 
 const active = document.querySelector('.active')
@@ -55,8 +75,8 @@ let totalPrice = document.querySelector('.total-price')
 for (let i = 0; i < cartProducts.length; i++) {
     const price = cartProducts[i].getElementsByClassName('price')[0].innerText.replace(",", ".")
     
-    totalPrice.innerHTML = (price*contador2)
+    //totalPrice.innerHTML = (price*contador2)
 }
-console.log(totalPrice)
+//console.log(totalPrice)
 
 // Parte acima é do popup -----------------------------------------------------------------------
