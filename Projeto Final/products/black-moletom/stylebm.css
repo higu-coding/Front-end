@@ -450,6 +450,11 @@ aside > button:hover {
     transition: 0.2s;
 }
 
+/* parte abaixo é referente aos produtos dentro do carrinho */
+
+
+/* parte acima é referente aos produtos dentro do carrinho */
+
 /* Parte acima é do popup ----------------------------------------------------------------------- */
 
 @media screen and (max-width: 850px) {

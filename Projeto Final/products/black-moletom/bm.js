@@ -26,9 +26,9 @@ addCart.addEventListener('click', (e) => {
     window.localStorage.setItem('nome',nameProduct.value)
     window.localStorage.setItem('preço',productPrice.value)
     window.localStorage.setItem('quantidade',quantity.value)
-    console.log(nameProduct.textContent)
-    console.log(productPrice.textContent)
-    console.log(quantity.textContent)
+    // console.log(nameProduct.textContent)
+    // console.log(productPrice.textContent)
+    // console.log(quantity.textContent)
 
     const name = document.querySelector('.name') // estava mexendo aqui 
     const price = document.querySelector('.price') // estava mexendo aqui
@@ -37,6 +37,7 @@ addCart.addEventListener('click', (e) => {
     name.innerHTML = nameProduct.textContent // estava mexendo aqui
     price.innerHTML = productPrice.textContent // estava mexendo aqui
 })
+
 
 // Parte acima é colocando o produto no carrinho
 
@@ -75,14 +76,15 @@ minus.addEventListener('click', (e) => {
 
 // abaixo vai estar a parte para atualizar os valores
 
-const cartProducts = document.getElementsByClassName('cart-product')
-let totalPrice = document.querySelector('.total-price')
-
-for (let i = 0; i < cartProducts.length; i++) {
-    const price = cartProducts[i].getElementsByClassName('price')[0].innerText.replace(",", ".")
-    
-    //totalPrice.innerHTML = (price*contador2)
-}
+// PARTE ABAIXO NAO funciona ainda
+// const cartProducts = document.getElementsByClassName('cart-product')
+// let totalPrice = document.querySelector('.total-price')
+// 
+// for (let i = 0; i < cartProducts.length; i++) {
+//     const price = cartProducts[i].getElementsByClassName('price')[0].innerText.replace(",", ".")
+//     
+//     //totalPrice.innerHTML = (price*contador2)
+// }
 //console.log(totalPrice)
 
 // Parte acima é do popup -----------------------------------------------------------------------
