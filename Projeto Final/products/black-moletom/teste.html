@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar ao Carrinho</title>
+    <style>
+        #carrinho {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 300px;
+        }
+        .item {
+            border-bottom: 1px solid #ccc;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <button id="adicionar">Adicionar ao Carrinho</button>
+    <div id="carrinho">
+        <h3>Carrinho</h3>
+    </div>
+
+    <script>
+        // Seleciona o botão e o carrinho
+        const botaoAdicionar = document.getElementById('adicionar');
+        const carrinho = document.getElementById('carrinho');
+
+        // Função para adicionar um novo item
+        botaoAdicionar.addEventListener('click', () => {
+            // Cria um novo elemento div
+            const novoItem = document.createElement('div');
+            novoItem.classList.add('item');
+            novoItem.textContent = `Item ${document.querySelectorAll('.item').length + 1}`;
+
+            // Adiciona o elemento ao carrinho
+            carrinho.appendChild(novoItem);
+        });
+    </script>
+</body>
+</html>
