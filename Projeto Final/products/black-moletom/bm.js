@@ -148,17 +148,4 @@ minus.addEventListener('click', (e) => {
     }
 })
 
-// abaixo vai estar a parte para atualizar os valores
-
-// PARTE ABAIXO NAO funciona ainda
-// const cartProducts = document.getElementsByClassName('cart-product')
-// let totalPrice = document.querySelector('.total-price')
-// 
-// for (let i = 0; i < cartProducts.length; i++) {
-//     const price = cartProducts[i].getElementsByClassName('price')[0].innerText.replace(",", ".")
-//     
-//     //totalPrice.innerHTML = (price*contador2)
-// }
-//console.log(totalPrice)
-
 // Parte acima é do popup -----------------------------------------------------------------------
