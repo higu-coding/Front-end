@@ -15,28 +15,102 @@ btnDiminuir.addEventListener('click', (e) => {
     }})
 
 // Parte abaixo é colocando o produto no carrinho
+// FIZ COM A AJUDA DO CHAT GPT, estava perdido
+const nameProduct = document.querySelector('.product-name');
+const productPrice = document.querySelector('.product-price');
+const quantity = document.querySelector('.quantity');
+const addCart = document.querySelector('.btn-addcart');
+const tbody = document.querySelector('.popup-content .sectionCart tbody'); // Seleciona o tbody correto
+const subtotalSpan = document.querySelector('.infos > div:nth-child(1) span:nth-child(2)'); // Subtotal no "aside"
+const totalSpanFooter = document.querySelector('aside footer span:nth-child(2)'); // Total no footer
 
-const activeProduct = document.querySelector('.active-product') // estava mexendo aqui
-const nameProduct = document.querySelector('.product-name')
-const productPrice = document.querySelector('.product-price')
-const quantity = document.querySelector('.quantity')
-const addCart = document.querySelector('.btn-addcart')
+addCart.addEventListener('click', () => {
+    addProductToCart();
+});
 
-addCart.addEventListener('click', (e) => {
-    window.localStorage.setItem('nome',nameProduct.value)
-    window.localStorage.setItem('preço',productPrice.value)
-    window.localStorage.setItem('quantidade',quantity.value)
-    // console.log(nameProduct.textContent)
-    // console.log(productPrice.textContent)
-    // console.log(quantity.textContent)
+function addProductToCart() {
+    const newRow = document.createElement('tr');
+    newRow.classList.add('cart-product');
 
-    const name = document.querySelector('.name') // estava mexendo aqui 
-    const price = document.querySelector('.price') // estava mexendo aqui
-    const imgProd = document.querySelector('.imgProd') // estava mexendo aqui
-    imgProd.src = '../../images/moletom-preto-p.jpeg' // estava mexendo aqui
-    name.innerHTML = nameProduct.textContent // estava mexendo aqui
-    price.innerHTML = productPrice.textContent // estava mexendo aqui
-})
+    newRow.innerHTML = `
+        <td>
+            <div class="product-oncart">
+                <img class="imgProd" src="../../images/moletom-preto-p.jpeg" alt="">
+                <div class="info">
+                    <div class="name">${nameProduct.textContent}</div>
+                    <div class="category">Roupas</div>
+                </div>
+            </div>
+        </td>
+        <td><span class="price">${productPrice.textContent}</span></td>
+        <td>
+            <div class="qty">
+                <button class="minus">-</button>
+                <span class="qty-oncart">${quantity.textContent}</span>
+                <button class="plus">+</button>
+            </div>
+        </td>
+        <td>R$ <span class="total price">${calculateTotal(quantity.textContent, productPrice.textContent)}</span></td>
+        <td>
+            <button class="remove-product"><i class='bx bx-x'></i></button>
+        </td>
+    `;
+
+    tbody.appendChild(newRow);
+    setupRowEvents(newRow);
+    updateCartTotal(); // Atualiza o total ao adicionar um produto
+}
+
+function calculateTotal(quantity, price) {
+    const priceValue = parseFloat(price.replace('R$', '').replace(',', '.'));
+    return (quantity * priceValue).toFixed(2).replace('.', ',');
+}
+
+function setupRowEvents(row) {
+    const minusButton = row.querySelector('.minus');
+    const plusButton = row.querySelector('.plus');
+    const removeButton = row.querySelector('.remove-product');
+    const qtySpan = row.querySelector('.qty-oncart');
+    const totalSpan = row.querySelector('.total.price');
+    const priceSpan = row.querySelector('.price');
+
+    let qty = parseInt(qtySpan.textContent);
+
+    plusButton.addEventListener('click', () => {
+        qty++;
+        qtySpan.textContent = qty;
+        totalSpan.textContent = calculateTotal(qty, priceSpan.textContent);
+        updateCartTotal(); // Atualiza o total ao alterar quantidade
+    });
+
+    minusButton.addEventListener('click', () => {
+        if (qty > 1) {
+            qty--;
+            qtySpan.textContent = qty;
+            totalSpan.textContent = calculateTotal(qty, priceSpan.textContent);
+            updateCartTotal(); // Atualiza o total ao alterar quantidade
+        }
+    });
+
+    removeButton.addEventListener('click', () => {
+        row.remove();
+        updateCartTotal(); // Atualiza o total ao remover um produto
+    });
+}
+
+function updateCartTotal() {
+    let total = 0;
+
+    // Soma todos os valores na coluna "Total" das linhas
+    document.querySelectorAll('.cart-product .total.price').forEach((totalSpan) => {
+        const totalValue = parseFloat(totalSpan.textContent.replace(',', '.'));
+        total += totalValue;
+    });
+
+    // Atualiza os valores nos spans de subtotal e footer
+    subtotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    totalSpanFooter.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+}
 
 
 // Parte acima é colocando o produto no carrinho
