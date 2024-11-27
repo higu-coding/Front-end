@@ -12,7 +12,8 @@ btnDiminuir.addEventListener('click', (e) => {
     if(contador > 1) {
         contador--
         btnQuantity.innerHTML = contador
-    }})
+    }
+})
 
 // Parte abaixo é colocando o produto no carrinho
 // FIZ COM A AJUDA DO CHAT GPT, estava perdido
