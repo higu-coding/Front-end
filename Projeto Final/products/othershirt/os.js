@@ -17,7 +17,50 @@ btnDiminuir.addEventListener('click', (e) => {
 
 //Parte abaixo é colocando o produto no carrinho
 
+const nameProduct = document.querySelector('.product-name')
+const productPrice = document.querySelector('.product-price')
+const quantity = document.querySelector('.quantity')
+const addCart = document.querySelector('.btn-addcart')
+const tbody = document.querySelector('.popup-content .sectionCart tbody')
+const subtotalSpan = document.querySelector('.infos > div:nth-child(1) span:nth-child(2)')
+const totalSpanFooter = document.querySelector('aside footer span:nth-child(2)')
 
+addCart.addEventListener('click', () => {
+    addProductToCart()
+}) 
+
+function addProductToCart() {
+    const newRow = document.createElement('tr')
+    newRow.classList.add('cart-product')
+
+    newRow.innerHTML = `
+        <td>
+            <div class="product-oncart">
+                <img class="imgProd" src="../../images/camisa-manga-curta-p.jpeg" alt="">
+                <div class="info">
+                    <div class="name">${nameProduct.textContent}</div>
+                    <div class="category">Roupas</div>
+                </div>
+            </div>
+        </td>
+        <td><span class="price">${productPrice.textContent}</span></td>
+        <td>
+            <div class="qty">
+                <button class="minus">-</button>
+                <span class="qty-oncart">${quantity.textContent}</span>
+                <button class="plus">+</button>
+            </div>
+        </td>
+        <td>R$ <span class="total price">${calculateTotal(quantity.textContent, productPrice.textContent)}</span></td>
+        <td>
+            <button class="remove-product"><i class='bx bx-x'></i></button>
+        </td>
+    `
+    tbody.appendChild(newRow)
+    setupRowEvents(newRow)
+    updateCartTotal()
+
+}
 
 // Parte acima é colocando o produto no carrinho
 
