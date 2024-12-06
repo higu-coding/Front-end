@@ -12,7 +12,14 @@ btnDiminuir.addEventListener('click', (e) => {
     if(contador > 1) {
         contador--
         btnQuantity.innerHTML = contador
-    }})
+    }
+})
+
+//Parte abaixo é colocando o produto no carrinho
+
+
+
+// Parte acima é colocando o produto no carrinho
 
 // Parte abaixo é do popup -----------------------------------------------------------------------
 const active = document.querySelector('.active')
@@ -45,17 +52,5 @@ minus.addEventListener('click', (e) => {
         qty.innerHTML = contador2
     }
 })
-
-// abaixo vai estar a parte para atualizar os valores
-
-const cartProducts = document.getElementsByClassName('cart-product')
-let totalPrice = document.querySelector('.total-price')
-
-for (let i = 0; i < cartProducts.length; i++) {
-    const price = cartProducts[i].getElementsByClassName('price')[0].innerText.replace(",", ".")
-    
-    totalPrice.innerHTML = (price*contador2)
-}
-console.log(totalPrice)
 
 // Parte acima é do popup -----------------------------------------------------------------------
