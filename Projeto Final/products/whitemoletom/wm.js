@@ -36,7 +36,7 @@ function addProductToCart() {
     newRow.innerHTML = `
         <td>
             <div class="product-oncart">
-                <img class="imgProd" src="../../images/camisa-manga-curta2-p.jpeg" alt="">
+                <img class="imgProd" src="../../images/moletom-branco-p.jpeg" alt="">
                 <div class="info">
                     <div class="name">${nameProduct.textContent}</div>
                     <div class="category">Roupas</div>
@@ -56,8 +56,8 @@ function addProductToCart() {
             <button class="remove-product"><i class='bx bx-x'></i></button>
         </td>
     `
-    tbody.appendChild(row)
-    setupRowEvents(row)
+    tbody.appendChild(newRow)
+    setupRowEvents(newRow)
     updateCartTotal()
 }
 
@@ -73,7 +73,6 @@ function setupRowEvents(row) {
     const qtySpan = row.querySelector('.qty-oncart');
     const totalSpan = row.querySelector('.total.price');
     const priceSpan = row.querySelector('.price');
-
     
     let qty = parseInt(qtySpan.textContent)
      
