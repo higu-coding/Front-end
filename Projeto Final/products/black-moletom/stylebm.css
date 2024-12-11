@@ -97,6 +97,11 @@ body {
 
 }
 
+img.moletom-preto  {
+    border-radius: 50px;
+    box-shadow: 0px 0px 70px;
+}
+
 .description{
     float: right;
     padding-top: 60px;

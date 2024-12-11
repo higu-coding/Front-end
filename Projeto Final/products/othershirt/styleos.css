@@ -97,6 +97,11 @@ body {
 
 }
 
+img.shirt {
+    border-radius: 50px;
+    box-shadow: 0px 0px 70px;
+}
+
 .description{
     float: right;
 }

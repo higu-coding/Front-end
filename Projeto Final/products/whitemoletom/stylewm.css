@@ -96,6 +96,11 @@ body {
     width: 44vw;
 }
 
+img.moletom-branco {
+    border-radius: 50px;
+    box-shadow: 0px 0px 70px;
+}
+
 .description{
     float: right;
 }
