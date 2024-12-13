@@ -116,6 +116,12 @@ function updateCartTotal() {
 
 // Parte acima é colocando o produto no carrinho
 
+// teste
+
+
+
+// teste 
+
 // Parte abaixo é do popup -----------------------------------------------------------------------
 
 const active = document.querySelector('.active')
