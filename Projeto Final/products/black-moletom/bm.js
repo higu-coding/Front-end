@@ -19,12 +19,31 @@ btnDiminuir.addEventListener('click', (e) => {
 // FIZ COM A AJUDA DO CHAT GPT, estava perdido
 const nameProduct = document.querySelector('.product-name');
 const productPrice = document.querySelector('.product-price');
-const quantity = document.querySelector('.quantity');
-const addCart = document.querySelector('.btn-addcart');
-const tbody = document.querySelector('.popup-content .sectionCart tbody'); // Seleciona o tbody correto
-const subtotalSpan = document.querySelector('.infos > div:nth-child(1) span:nth-child(2)'); // Subtotal no "aside"
-const totalSpanFooter = document.querySelector('aside footer span:nth-child(2)'); // Total no footer
+const addCartButton = document.querySelector('.btn-addcart');
+const productImage = '../../images/moletom-preto-p.jpeg'
 
+// configurando o botao de adicionar ao carrinho
+
+addCartButton.addEventListener('click', () => {
+    let cart = JSON.parse(localStorage.getItem('cart')) || []
+    const existingProductIndex = cart.findIndex(item => item.name === nameProduct)
+
+    if (existingProductIndex > -1) {
+        cart[existingProductIndex].quantity += 1
+    } else {
+        const newProduct = {
+            name: nameProduct,
+            price: parseFloat(productPrice.replace('R$', '').replace(',', '.')),
+            quantity: 1,
+            image: productImage
+        }
+        cart.push(newProduct)
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart))
+    renderCart()
+    alert('Produto adicionado ao carrinho') // isso pode ser apagado
+})
 
 // Parte acima é colocando o produto no carrinho
 
