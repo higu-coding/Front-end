@@ -22,6 +22,9 @@ const productPrice = document.querySelector('.product-price');
 const addCartButton = document.querySelector('.btn-addcart');
 const productImage = '../../images/moletom-preto-p.jpeg'
 
+const cartTableBody = document.querySelector('tbody');
+const asideTotalSpan = document.querySelector('.infos span:last-child');
+const footerTotalSpan = document.querySelector('footer span:last-child');
 // configurando o botao de adicionar ao carrinho
 
 addCartButton.addEventListener('click', () => {
@@ -44,6 +47,40 @@ addCartButton.addEventListener('click', () => {
     renderCart()
     alert('Produto adicionado ao carrinho') // isso pode ser apagado
 })
+
+function renderCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []
+    cartTableBody.innerHTML = ''
+    
+    cart.forEach(product => {
+        const row = document.createElement('tr')
+        row.innerHTML = `
+            <td>
+                <div class="product-oncart">
+                    <img src="${product.image}" class="imgProd" alt="${product.name}">
+                    <div class="info">
+                        <div class="name">${product.name}</div>
+                    </div>
+                </div>
+            </td>
+            <td>R$ ${product.price.toFixed(2).replace('.', ',')}</td>
+            <td>
+                <div class="qty">
+                    <button class="minus">-</button>
+                    <span class="qty-oncart">${product.quantity}</span>
+                    <button class="plus">+</button>
+                </div>
+            </td>
+            <td>R$ ${(product.price * product.quantity).toFixed(2).replace('.', ',')}</td>
+            <td>
+                <button class="remove-product"><i class='bx bx-x'></i></button>
+            </td>
+        `
+        setupRowEvents(row, product.name)
+        cartTableBody.appendChild(row)
+    })
+    updateCartTotal()
+ }
 
 // Parte acima é colocando o produto no carrinho
 
