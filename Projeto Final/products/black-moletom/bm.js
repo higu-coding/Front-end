@@ -82,6 +82,14 @@ function renderCart() {
     updateCartTotal()
  }
 
+function updateCartTotal() {
+    cart = JSON.parse(localStorage.getItem('cart')) || []
+    const total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
+
+    asideTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
+    footerTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
+}
+
 // Parte acima é colocando o produto no carrinho
 
 // Parte abaixo é do popup -----------------------------------------------------------------------
