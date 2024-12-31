@@ -17,9 +17,9 @@ btnDiminuir.addEventListener('click', (e) => {
 
 // Parte abaixo é colocando o produto no carrinho
 // FIZ COM A AJUDA DO CHAT GPT, estava perdido
-const nameProduct = document.querySelector('.product-name');
-const productPrice = document.querySelector('.product-price');
 const addCartButton = document.querySelector('.btn-addcart');
+const nameProduct = document.querySelector('.product-name').textContent;
+const productPrice = document.querySelector('.product-price').textContent;
 const productImage = '../../images/moletom-preto-p.jpeg'
 
 const cartTableBody = document.querySelector('tbody');
@@ -45,7 +45,6 @@ addCartButton.addEventListener('click', () => {
     
     localStorage.setItem('cart', JSON.stringify(cart))
     renderCart()
-    alert('Produto adicionado ao carrinho') // isso pode ser apagado
 })
 
 function renderCart() {
@@ -83,7 +82,7 @@ function renderCart() {
  }
 
 function updateCartTotal() {
-    cart = JSON.parse(localStorage.getItem('cart')) || []
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
 
     asideTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
@@ -109,6 +108,34 @@ function setupRowEvents(row, productName) {
     });
 }
 
+function updateProductQuantity(productName, change) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const productIndex = cart.findIndex(item => item.name === productName);
+
+    if (productIndex > -1) {
+        cart[productIndex].quantity += change;
+
+        if (cart[productIndex].quantity < 1) {
+            cart.splice(productIndex, 1);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        renderCart();
+    }
+}
+
+// Função para remover um produto do carrinho
+function removeProduct(productName) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(item => item.name !== productName);
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    renderCart();
+}
+
+document.addEventListener('DOMContentLoaded', renderCart);
 // Parte acima é colocando o produto no carrinho
 
 // Parte abaixo é do popup -----------------------------------------------------------------------
