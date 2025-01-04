@@ -26,6 +26,26 @@ const productImage = '../../images/camisa-manga-curta-p.jpeg'
 const cartTableBody = document.querySelector('tbody');
 const asideTotalSpan = document.querySelector('.infos span:last-child');
 const footerTotalSpan = document.querySelector('footer span:last-child');
+
+addCartButton.addEventListener('click', () => {
+    let cart = JSON.parse(localStorage.getItem('cart')) || []
+    const existingProductIndex = cart.findIndex(item => item.name === nameProduct)
+
+    if (existingProductIndex > -1) {
+        cart[existingProductIndex].quantity += 1
+    } else {
+        const newProduct = {
+            name: nameProduct,
+            price: parseFloat(productPrice.replace('R$', '').replace(',', '.')),
+            quantity: 1,
+            image: productImage
+        }
+        cart.push(newProduct)
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart))
+    renderCart()
+})
 // Parte acima é colocando o produto no carrinho
 
 // Parte abaixo é do popup -----------------------------------------------------------------------
