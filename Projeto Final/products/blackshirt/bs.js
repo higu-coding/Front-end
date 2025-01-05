@@ -46,6 +46,48 @@ addCartButton.addEventListener('click', () => {
     localStorage.setItem('cart', JSON.stringify(cart))
     renderCart()
 })
+
+function renderCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []
+    cartTableBody.innerHTML = ''
+
+    cart.forEach(product => {
+        const row = document.createElement('tr')
+        row.innerHTML = `
+            <td>
+                <div class="product-oncart">
+                    <img src="${product.image}" class="imgProd" alt="${product.name}">
+                    <div class="info">
+                        <div class="name">${product.name}</div>
+                    </div>
+                </div>
+            </td>
+            <td>R$ ${product.price.toFixed(2).replace('.', ',')}</td>
+            <td>
+                <div class="qty">
+                    <button class="minus">-</button>
+                    <span class="qty-oncart">${product.quantity}</span>
+                    <button class="plus">+</button>
+                </div>
+            </td>
+            <td>R$ ${(product.price * product.quantity).toFixed(2).replace('.', ',')}</td>
+            <td>
+                <button class="remove-product"><i class='bx bx-x'></i></button>
+            </td>
+        `
+        setupRowEvents(row, product.name)
+        cartTableBody.appendChild(row)
+    })
+    updateCartTotal()
+}
+
+function updateCartTotal() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []
+    const total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0)
+    
+    asideTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
+    footerTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
+}
 // Parte acima é colocando o produto no carrinho
 
 // Parte abaixo é do popup -----------------------------------------------------------------------
