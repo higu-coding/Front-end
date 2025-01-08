@@ -88,6 +88,26 @@ function updateCartTotal() {
     asideTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
     footerTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
 }
+
+function setupRowEvents(row, productName) {
+    const minusButton = row.querySelector('.minus');
+    const plusButton = row.querySelector('.plus');
+    const removeButton = row.querySelector('.remove-product');
+    const quantitySpan = row.querySelector('.qty-oncart');
+
+    minusButton.addEventListener('click', () => {
+        updateProductQuantity(productName, -1);
+    });
+
+    plusButton.addEventListener('click', () => {
+        updateProductQuantity(productName, 1);
+    });
+
+    removeButton.addEventListener('click', () => {
+        removeProduct(productName);
+    });
+}
+
 // Parte acima é colocando o produto no carrinho
 
 // Parte abaixo é do popup -----------------------------------------------------------------------
