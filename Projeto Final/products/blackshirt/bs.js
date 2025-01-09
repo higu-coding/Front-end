@@ -108,6 +108,35 @@ function setupRowEvents(row, productName) {
     });
 }
 
+function updateProductQuantity(productName, change) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const productIndex = cart.findIndex(item => item.name === productName);
+
+    if (productIndex > -1) {
+        cart[productIndex].quantity += change;
+
+        if (cart[productIndex].quantity < 1) {
+            cart.splice(productIndex, 1);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        renderCart();
+    }
+}
+
+// Função para remover um produto do carrinho
+function removeProduct(productName) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(item => item.name !== productName);
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    renderCart();
+}
+
+document.addEventListener('DOMContentLoaded', renderCart);
+
 // Parte acima é colocando o produto no carrinho
 
 // Parte abaixo é do popup -----------------------------------------------------------------------
