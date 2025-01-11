@@ -17,98 +17,15 @@ btnDiminuir.addEventListener('click', (e) => {
 
 //Parte abaixo é colocando o produto no carrinho
 
-const nameProduct = document.querySelector('.product-name')
-const productPrice = document.querySelector('.product-price')
-const quantity = document.querySelector('.quantity')
-const addCart = document.querySelector('.btn-addcart')
-const tbody = document.querySelector('.popup-content .sectionCart tbody')
-const subtotalSpan = document.querySelector('.infos > div:nth-child(1) span:nth-child(2)')
-const totalSpanFooter = document.querySelector('aside footer span:nth-child(2)')
+const addCartButton = document.querySelector('.btn-addcart');
+const nameProduct = document.querySelector('.product-name').textContent;
+const productPrice = document.querySelector('.product-price').textContent;
+const productImage = '../../images/moletom-preto-p.jpeg'
 
-addCart.addEventListener('click', () => {
-    addProductToCart()
-}) 
+const cartTableBody = document.querySelector('tbody');
+const asideTotalSpan = document.querySelector('.infos span:last-child');
+const footerTotalSpan = document.querySelector('footer span:last-child');
 
-function addProductToCart() {
-    const newRow = document.createElement('tr')
-    newRow.classList.add('cart-product')
-
-    newRow.innerHTML = `
-        <td>
-            <div class="product-oncart">
-                <img class="imgProd" src="../../images/camisa-manga-curta2-p.jpeg" alt="">
-                <div class="info">
-                    <div class="name">${nameProduct.textContent}</div>
-                    <div class="category">Roupas</div>
-                </div>
-            </div>
-        </td>
-        <td><span class="price">${productPrice.textContent}</span></td>
-        <td>
-            <div class="qty">
-                <button class="minus">-</button>
-                <span class="qty-oncart">${quantity.textContent}</span>
-                <button class="plus">+</button>
-            </div>
-        </td>
-        <td>R$ <span class="total price">${calculateTotal(quantity.textContent, productPrice.textContent)}</span></td>
-        <td>
-            <button class="remove-product"><i class='bx bx-x'></i></button>
-        </td>
-    `
-    tbody.appendChild(newRow)
-    setupRowEvents(newRow)
-    updateCartTotal()
-}
-
-function calculateTotal(quantity, price){
-    const priceValue = parseFloat(price.replace('R$', '').replace(',', '.'))
-    return (quantity * priceValue).toFixed(2).replace('.', ',')
-}
-
-function setupRowEvents(row) {
-    const minusButton = row.querySelector('.minus');
-    const plusButton = row.querySelector('.plus');
-    const removeButton = row.querySelector('.remove-product');
-    const qtySpan = row.querySelector('.qty-oncart');
-    const totalSpan = row.querySelector('.total.price');
-    const priceSpan = row.querySelector('.price');
-
-    let qty = parseInt(qtySpan.textContent)
-     
-    plusButton.addEventListener('click', () => {
-        qty++
-        qtySpan.textContent = qty
-        totalSpan.textContent = calculateTotal(qty, priceSpan.textContent)
-        updateCartTotal()
-    })
-
-    minusButton.addEventListener('click', () => {
-        if (qty > 1){
-            qty--
-            qtySpan.textContent = qty
-            totalSpan.textContent = calculateTotal(qty, priceSpan.textContent)
-            updateCartTotal()
-        }
-    })
-
-    removeButton.addEventListener('click', () => {
-        row.remove()
-        updateCartTotal()
-    })
-}
-
-function updateCartTotal() {
-    let total = 0
-
-    document.querySelectorAll('.cart-product .total.price').forEach((totalSpan) => {
-        const totalValue = parseFloat(totalSpan.textContent.replace(',', '.'))
-        total += totalValue
-    })
-
-    subtotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
-    totalSpanFooter.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
-}
 
 // Parte acima é colocando o produto no carrinho
 
