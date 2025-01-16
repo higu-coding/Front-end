@@ -45,6 +45,96 @@ addCartButton.addEventListener('click', () => {
     localStorage.setItem('cart', JSON.stringify(cart))
     renderCart()
 })
+
+function renderCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []
+    cartTableBody.innerHTML = ''
+    
+    cart.forEach(product => {
+        const row = document.createElement('tr')
+        row.innerHTML = `
+            <td>
+                <div class="product-oncart">
+                    <img src="${product.image}" class="imgProd" alt="${product.name}">
+                    <div class="info">
+                        <div class="name">${product.name}</div>
+                    </div>
+                </div>
+            </td>
+            <td>R$ ${product.price.toFixed(2).replace('.', ',')}</td>
+            <td>
+                <div class="qty">
+                    <button class="minus">-</button>
+                    <span class="qty-oncart">${product.quantity}</span>
+                    <button class="plus">+</button>
+                </div>
+            </td>
+            <td>R$ ${(product.price * product.quantity).toFixed(2).replace('.', ',')}</td>
+            <td>
+                <button class="remove-product"><i class='bx bx-x'></i></button>
+            </td>
+        `
+        setupRowEvents(row, product.name)
+        cartTableBody.appendChild(row)
+    })
+    updateCartTotal()
+ }
+
+function updateCartTotal() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
+
+    asideTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
+    footerTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
+}
+
+function setupRowEvents(row, productName) {
+    const minusButton = row.querySelector('.minus');
+    const plusButton = row.querySelector('.plus');
+    const removeButton = row.querySelector('.remove-product');
+    const quantitySpan = row.querySelector('.qty-oncart');
+
+    minusButton.addEventListener('click', () => {
+        updateProductQuantity(productName, -1);
+    });
+
+    plusButton.addEventListener('click', () => {
+        updateProductQuantity(productName, 1);
+    });
+
+    removeButton.addEventListener('click', () => {
+        removeProduct(productName);
+    });
+}
+
+function updateProductQuantity(productName, change) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const productIndex = cart.findIndex(item => item.name === productName);
+
+    if (productIndex > -1) {
+        cart[productIndex].quantity += change;
+
+        if (cart[productIndex].quantity < 1) {
+            cart.splice(productIndex, 1);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        renderCart();
+    }
+}
+
+// Função para remover um produto do carrinho
+function removeProduct(productName) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(item => item.name !== productName);
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    renderCart();
+}
+
+document.addEventListener('DOMContentLoaded', renderCart);
 // Parte acima é colocando o produto no carrinho
 
 // Parte abaixo é do popup -----------------------------------------------------------------------
