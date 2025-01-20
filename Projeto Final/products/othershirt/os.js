@@ -20,7 +20,7 @@ btnDiminuir.addEventListener('click', (e) => {
 const addCartButton = document.querySelector('.btn-addcart');
 const nameProduct = document.querySelector('.product-name').textContent;
 const productPrice = document.querySelector('.product-price').textContent;
-const productImage = '../../images/moletom-preto-p.jpeg'
+const productImage = '../../images/camisa-manga-curta2-p.jpeg'
 
 const cartTableBody = document.querySelector('tbody');
 const asideTotalSpan = document.querySelector('.infos span:last-child');

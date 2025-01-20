@@ -17,98 +17,124 @@ btnDiminuir.addEventListener('click', (e) => {
 
 //Parte abaixo é colocando o produto no carrinho
 
-const nameProduct = document.querySelector('.product-name')
-const productPrice = document.querySelector('.product-price')
-const quantity = document.querySelector('.quantity')
-const addCart = document.querySelector('.btn-addcart')
-const tbody = document.querySelector('.popup-content .sectionCart tbody')
-const subtotalSpan = document.querySelector('.infos > div:nth-child(1) span:nth-child(2)')
-const totalSpanFooter = document.querySelector('aside footer span:nth-child(2)')
+const addCartButton = document.querySelector('.btn-addcart');
+const nameProduct = document.querySelector('.product-name').textContent;
+const productPrice = document.querySelector('.product-price').textContent;
+const productImage = '../../images/moletom-branco-p.jpeg'
 
-addCart.addEventListener('click', () => {
-    addProductToCart()
+const cartTableBody = document.querySelector('tbody');
+const asideTotalSpan = document.querySelector('.infos span:last-child');
+const footerTotalSpan = document.querySelector('footer span:last-child');
+
+addCartButton.addEventListener('click', () => {
+    let cart = JSON.parse(localStorage.getItem('cart')) || []
+    const existingProductIndex = cart.findIndex(item => item.name === nameProduct)
+
+    if (existingProductIndex > -1) {
+        cart[existingProductIndex].quantity += 1
+    } else {
+        const newProduct = {
+            name: nameProduct,
+            price: parseFloat(productPrice.replace('R$', '').replace(',', '.')),
+            quantity: 1,
+            image: productImage
+        }
+        cart.push(newProduct)
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart))
+    renderCart()
 })
 
-function addProductToCart() {
-    const newRow = document.createElement('tr')
-    newRow.classList.add('cart-product')
-
-    newRow.innerHTML = `
-        <td>
-            <div class="product-oncart">
-                <img class="imgProd" src="../../images/moletom-branco-p.jpeg" alt="">
-                <div class="info">
-                    <div class="name">${nameProduct.textContent}</div>
-                    <div class="category">Roupas</div>
+function renderCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []
+    cartTableBody.innerHTML = ''
+    
+    cart.forEach(product => {
+        const row = document.createElement('tr')
+        row.innerHTML = `
+            <td>
+                <div class="product-oncart">
+                    <img src="${product.image}" class="imgProd" alt="${product.name}">
+                    <div class="info">
+                        <div class="name">${product.name}</div>
+                    </div>
                 </div>
-            </div>
-        </td>
-        <td><span class="price">${productPrice.textContent}</span></td>
-        <td>
-            <div class="qty">
-                <button class="minus">-</button>
-                <span class="qty-oncart">${quantity.textContent}</span>
-                <button class="plus">+</button>
-            </div>
-        </td>
-        <td>R$ <span class="total price">${calculateTotal(quantity.textContent, productPrice.textContent)}</span></td>
-        <td>
-            <button class="remove-product"><i class='bx bx-x'></i></button>
-        </td>
-    `
-    tbody.appendChild(newRow)
-    setupRowEvents(newRow)
+            </td>
+            <td>R$ ${product.price.toFixed(2).replace('.', ',')}</td>
+            <td>
+                <div class="qty">
+                    <button class="minus">-</button>
+                    <span class="qty-oncart">${product.quantity}</span>
+                    <button class="plus">+</button>
+                </div>
+            </td>
+            <td>R$ ${(product.price * product.quantity).toFixed(2).replace('.', ',')}</td>
+            <td>
+                <button class="remove-product"><i class='bx bx-x'></i></button>
+            </td>
+        `
+        setupRowEvents(row, product.name)
+        cartTableBody.appendChild(row)
+    })
     updateCartTotal()
+ }
+
+function updateCartTotal() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
+
+    asideTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
+    footerTotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
 }
 
-function calculateTotal(quantity, price){
-    const priceValue = parseFloat(price.replace('R$', '').replace(',', '.'))
-    return (quantity * priceValue).toFixed(2).replace('.', ',')
-}
-
-function setupRowEvents(row) {
+function setupRowEvents(row, productName) {
     const minusButton = row.querySelector('.minus');
     const plusButton = row.querySelector('.plus');
     const removeButton = row.querySelector('.remove-product');
-    const qtySpan = row.querySelector('.qty-oncart');
-    const totalSpan = row.querySelector('.total.price');
-    const priceSpan = row.querySelector('.price');
-    
-    let qty = parseInt(qtySpan.textContent)
-     
-    plusButton.addEventListener('click', () => {
-        qty++
-        qtySpan.textContent = qty
-        totalSpan.textContent = calculateTotal(qty, priceSpan.textContent)
-        updateCartTotal()
-    })
+    const quantitySpan = row.querySelector('.qty-oncart');
 
     minusButton.addEventListener('click', () => {
-        if (qty > 1){
-            qty--
-            qtySpan.textContent = qty
-            totalSpan.textContent = calculateTotal(qty, priceSpan.textContent)
-            updateCartTotal()
-        }
-    })
+        updateProductQuantity(productName, -1);
+    });
+
+    plusButton.addEventListener('click', () => {
+        updateProductQuantity(productName, 1);
+    });
 
     removeButton.addEventListener('click', () => {
-        row.remove()
-        updateCartTotal()
-    })
+        removeProduct(productName);
+    });
 }
 
-function updateCartTotal() {
-    let total = 0
+function updateProductQuantity(productName, change) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const productIndex = cart.findIndex(item => item.name === productName);
 
-    document.querySelectorAll('.cart-product .total.price').forEach((totalSpan) => {
-        const totalValue = parseFloat(totalSpan.textContent.replace(',', '.'))
-        total += totalValue
-    })
+    if (productIndex > -1) {
+        cart[productIndex].quantity += change;
 
-    subtotalSpan.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
-    totalSpanFooter.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`
+        if (cart[productIndex].quantity < 1) {
+            cart.splice(productIndex, 1);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        renderCart();
+    }
 }
+
+// Função para remover um produto do carrinho
+function removeProduct(productName) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(item => item.name !== productName);
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    renderCart();
+}
+
+document.addEventListener('DOMContentLoaded', renderCart);
  
 // Parte acima é colocando o produto no carrinho
 
