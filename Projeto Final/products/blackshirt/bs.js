@@ -16,7 +16,6 @@ btnDiminuir.addEventListener('click', (e) => {
 })
 
 //Parte abaixo é colocando o produto no carrinho
-//Essa parte eu tentarei fazer sozinho
 
 const addCartButton = document.querySelector('.btn-addcart');
 const nameProduct = document.querySelector('.product-name').textContent;
